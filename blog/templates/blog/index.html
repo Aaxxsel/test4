@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Создать</button>
+</form>
+
+<p>Посты</p>
+
+    <ul>
+    {% for post in posts %}
+    <li>{{ post.date_db}}
+        {{ post.title }}</li>
+    <li>{{ post.text}}</li>
+    {% endfor %}
+    </ul>
+
+
+{% endblock %}
